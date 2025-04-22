@@ -1,0 +1,18 @@
+.girls {
+    color: black;
+    font-size: larger;
+}
+
+.boys {
+    color:blue;
+    font-size: xx-large;
+}
+
+
+.girls:hover{
+   color: green;
+}
+
+.boys:hover{
+    color: white;
+}
