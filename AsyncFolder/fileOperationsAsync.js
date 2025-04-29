@@ -12,7 +12,7 @@ async function fileOperations() {
     const data = await fs.readFile(filePath, "utf-8");
     console.log(data);
     // await fs.unlink(filePath);
-    // await fs.rmdir(folder);
+    // await fs.rmdir(folderName);
   } catch (erroe) {
     console.log(error);
   }
