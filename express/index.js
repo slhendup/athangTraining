@@ -6,7 +6,7 @@ const app = express();
 //   res.send("server is very   healthy");
 // });
 let details = [
-  { Name: "sonam", Id: 1 },
+  { Name: "pra", Id: 1 },
   { Name: "jigme", Id: 2 },
   { Name: "jaymang", Id: 3 },
   { Name: "tashi", Id: 4 },
@@ -17,10 +17,26 @@ let details = [
 app.get("/details", (req, res) => {
   res.send(details);
 });
-// /details/Id to get student by Id
+
+// // /details/Id to get student by Id
+// app.get("/details/:Id", (req, res) => {
+//   const Id = Number(req.params.Id);
+//   res.send(details.find((detail) => detail.Id === Id));
+
+// });
+
+// response for error
 app.get("/details/:Id", (req, res) => {
   const Id = Number(req.params.Id);
-  res.send(details.find((detail) => detail.Id === Id));
+  const detail = details.find((detail) => detail.Id === Id);
+
+  if (!detail) {
+    res
+      .status(404)
+      .json({ message: `this detail with id ${Id} number is not found` });
+  } else {
+    res.status(200).json(detail);
+  }
 });
 
 app.listen(PORT, () => {
