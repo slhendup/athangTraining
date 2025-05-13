@@ -1,0 +1,26 @@
+[
+  {
+    "name": "prstap",
+    "age": 19,
+    "email": "prstap@lwp.com",
+    "password": "200512"
+  },
+  {
+    "name": "sonam",
+    "age": 20,
+    "email": "sonam@lwp.com",
+    "password": "200612"
+  },
+  {
+    "name": "lhendup",
+    "age": 19,
+    "email": "lhendup@lwp.com",
+    "password": "200505"
+  },
+  {
+    "name": "chimi",
+    "age": "90",
+    "email": "chimi@lwp.com",
+    "password": "202505"
+  }
+]
