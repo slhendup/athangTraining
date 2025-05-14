@@ -1,7 +1,7 @@
 const booksService = require("../services/books.service");
 
 const deleteBookById = async (req, res) => {
-  const id = Number(req.params.id);
+  const id = req.params.id;
   const isDeleted = await booksService.deleteBookById(id);
   if (isDeleted) {
     res.json({ message: `Book ${id} deleted successfully` });
@@ -38,7 +38,7 @@ const createNewBook = async (req, res) => {
 
   if (missingKeys.length > 0) {
     return res.status(400).json({
-      message: `please provide all information: ${missingKeys.join(", ")}`,
+      message: `please provide all information: ${missingKeys.join(",")}`,
     });
   }
 
@@ -47,15 +47,15 @@ const createNewBook = async (req, res) => {
       .status(400)
       .json({ message: `publishedYear should be in number` });
   }
-  await booksService.createNewBook(newBook);
-  res.status(201).json({ message: "book file created", book: newBook });
+  const createdBook = await booksService.createNewBook(newBook);
+  res.status(201).json({ message: "book file created", book: createdBook });
 };
 
 const updateBookById = async (req, res) => {
-  const id = Number(req.params.id);
-  if (Number.isNaN(id)) {
-    return res.status(400).json({ message: `Please provide a valid Id` });
-  }
+  const id = req.params.id;
+  // if (Number.isNaN(id)) {
+  //   return res.status(400).json({ message: `Please provide a valid Id` });
+  // }
 
   if (!req.body) {
     return res.status(400).json({ message: `Body cannot be empty` });

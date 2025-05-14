@@ -3,16 +3,22 @@ const { readFile, writeFile } = require("../utils/file.util");
 const filePath = "./data/books.json";
 
 const deleteBookById = async (id) => {
-  let books = await readFile(filePath0);
-  const book = books.find((items) => items.id === id);
+  const deleted = await Book.deleteOne({ _id: id });
 
-  if (book) {
-    books = books.filter((item) => item.id !== id);
-    await writeFile(filePath, books);
+  if (deleted.deletedCount > 0) {
     return true;
   } else {
     return false;
   }
+  //   const book = books.find((items) => items.id === id);
+
+  //   if (book) {
+  //     books = books.filter((item) => item.id !== id);
+  //     await writeFile(filePath, books);
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
 };
 
 const getAllBooks = async () => {
@@ -26,29 +32,41 @@ const getBookById = async (id) => {
 };
 
 const createNewBook = async (newBook) => {
-  const books = await readFile(filePath);
-  newBook.id = Date.now();
-  books.push(newBook);
-  await writeFile(filePath, books);
+  const book = new Book(newBook);
+  const savedBook = await book.save();
+  console.log(savedBook);
+  return savedBook;
+  // with out mongo db
+  // const books = await readFile(filePath);
+  // newBook.id = Date.now();
+  // books.push(newBook);
+  // await writeFile(filePath, books);
 };
 
-const updateBookById = async () => {
-  let books = await readFile(filePath);
-  const book = books.find((item) => item.id === id);
-
-  if (!book) {
+const updateBookById = async (id, newBook) => {
+  const update = await Book.updateOne({ _id: id }, { $set: newBook });
+  if (update.matchedCount > 0) {
+    const updatedBook = await Book.findOne({ _id: id });
+    return updatedBook;
+  } else {
     return;
   }
-  let updatedBook = null;
-  books = books.map((item) => {
-    if (item.id === Number(id)) {
-      newBook.id = Number(id);
-      return newBook;
-    }
-    return item;
-  });
+  // if (!book) {
+  //   return;
+  // }
 
-  await writeFile(filePath, books);
+  // let updatedBook = null;
+  // books = books.map((item) => {
+  //   if (item.id === id) {
+  //     newBook.id = id;
+  //     updatedBook = newBook;
+  //     return newBook;
+  //   }
+  //   return item;
+  // });
+
+  // await writeFile(filePath, books);
+
   return updatedBook;
 };
 

@@ -22,5 +22,7 @@
     "age": "90",
     "email": "chimi@lwp.com",
     "password": "202505"
-  }
+  },
+  { "name": "sangay", "age": 19, "email": "sangay@lws.com", "password": 12345 },
+  { "name": "tashi", "age": 19, "email": "tashi@lwp.com", "password": "200505" }
 ]
