@@ -8,7 +8,7 @@ const UserSchema = new Schema(
     name: String,
     age: Number,
     email: String,
-    password: Number,
+    password: String,
   },
   { timestamps: true }
 ); // created date and time

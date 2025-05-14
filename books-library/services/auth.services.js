@@ -1,8 +1,7 @@
-const { readFile, writeFile } = require("../utils/file.util");
-const usersFilePath = "./data/users.json";
 const { createJWTTOKEN } = require("../utils/jwt.util");
-const revokdedTokensFilePath = "./data/revoked-tokens.json";
 const User = require("../models/user.model");
+const RevokedToken = require("../models/revokedToken.model");
+const { createHash, compareHash } = require("../utils/hash.util");
 
 const signIn = async (data) => {
   // const allUsers = await readFile(usersFilePath);
@@ -14,14 +13,14 @@ const signIn = async (data) => {
     return { userNotFound: true };
   }
 
-  if (user.password !== password) {
+  const isPasswordMatched = await compareHash(password, user.password);
+
+  if (!isPasswordMatched) {
     return { passwordMismatch: true };
   }
 
   delete user.password;
-
   const token = createJWTTOKEN(user.toJSON()); //converting document into json
-
   return { token };
 };
 
@@ -34,6 +33,8 @@ const signUp = async (data) => {
     return { userAlreadyExist: true };
   }
 
+  data.password = await createHash(data.password);
+
   const newUser = new User(data);
   const savedUser = await newUser.save();
 
@@ -45,9 +46,11 @@ const signUp = async (data) => {
 };
 
 const signOut = async (token) => {
-  const allRevokedTokens = await readFile(revokdedTokensFilePath);
-  allRevokedTokens.push(token);
-  await writeFile(revokdedTokensFilePath, allRevokedTokens);
+  const newToken = new RevokedToken({ token });
+  await newToken.save();
+  // const allRevokedTokens = await readFile(revokdedTokensFilePath);
+  // allRevokedTokens.push(token);
+  // await writeFile(revokdedTokensFilePath, allRevokedTokens);
 };
 
 module.exports = { signIn, signUp, signOut };

@@ -1,6 +1,7 @@
+const RevokedToken = require("../models/revokedToken.model");
 const { readFile } = require("../utils/file.util");
 const { verifyJWTToken } = require("../utils/jwt.util");
-const revokdedTokensFilePath = "./data/revoked-tokens.json";
+const revokedTokensFilePath = "./data/revoked-tokens.json";
 
 const verifyAuth = async (req, res, next) => {
   const authheader = req.headers.authorization;
@@ -19,8 +20,10 @@ const verifyAuth = async (req, res, next) => {
   if (!token || token === "null" || token === "undefined") {
     return res.status(401).json({ message: `Please provide token` });
   }
-  const allRevokedTokens = await readFile(revokdedTokensFilePath);
-  if (allRevokedTokens.includes(token)) {
+
+  const revokedTokens = await RevokedToken.findOne({ token });
+
+  if (revokedTokens) {
     return res.status(401).json({ message: `Token is already revoked` });
   }
 
