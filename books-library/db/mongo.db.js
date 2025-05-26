@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
+const { mongoURI } = require("../config");
 
 const connectMongoDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://sonamlhendup:sl1234@cluster0.2p56bov.mongodb.net/book-library"
-    );
+    await mongoose.connect(mongoURI);
     console.log("Mongodb connected");
   } catch (error) {
     console.error("MongoDB connection error", error);

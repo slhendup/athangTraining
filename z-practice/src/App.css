@@ -1,0 +1,111 @@
+/* Galaxy-Themed App.css */
+
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  justify-content: center;
+}
+
+/* Center layout */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Form container */
+.center > div {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #7f00ff;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px #7f00ff, 0 0 40px #4b0082;
+  backdrop-filter: blur(4px);
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  border: 2px solid #9933ff;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #cc66ff;
+  box-shadow: 0 0 10px #cc66ff;
+}
+
+/* Labels */
+label {
+  color: #bfbfff;
+  font-weight: bold;
+  display: block;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(90deg, #7f00ff, #e100ff);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0.4rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #b400ff;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00ff;
+}
+
+/* Todo item container */
+.todo-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 12px rgba(128, 0, 255, 0.4);
+  transition: 0.3s;
+}
+
+
+
+/* Paragraphs inside todos */
+.todo-item p {
+  margin: 0.5rem 0;
+}
+
+/* Style for completed todos */
+.todo-item.completed {
+  background-color: rgba(0, 255, 128, 0.08);
+  border: 1px solid #00ffcc;
+  color: #a3ffe4;
+  text-decoration: line-through;
+  box-shadow: 0 0 12px #00ffcc, 0 0 25px #00ffaa;
+  transition: all 0.3s ease;
+}

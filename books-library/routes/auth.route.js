@@ -1,6 +1,5 @@
 const express = require("express");
 
-// const { readFile, writeFile } = require("../utils/file.util");
 const verifyAuth = require("../middlewares/veryfyAuth.midddleware");
 const authsController = require("../controllers/auth.controller");
 
