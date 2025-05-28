@@ -1,4 +1,4 @@
-/* Galaxy-Themed App.css */
+/* Galaxy-Themed App.css
 
 
 body {
@@ -11,7 +11,6 @@ body {
   justify-content: center;
 }
 
-/* Center layout */
 .center {
   display: flex;
   flex-direction: column;
@@ -20,7 +19,6 @@ body {
   padding: 2rem;
 }
 
-/* Form container */
 .center > div {
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid #7f00ff;
@@ -33,7 +31,6 @@ body {
   backdrop-filter: blur(4px);
 }
 
-/* Inputs */
 input {
   width: 100%;
   padding: 10px;
@@ -54,14 +51,12 @@ input:focus {
   box-shadow: 0 0 10px #cc66ff;
 }
 
-/* Labels */
 label {
   color: #bfbfff;
   font-weight: bold;
   display: block;
 }
 
-/* Buttons */
 button {
   background: linear-gradient(90deg, #7f00ff, #e100ff);
   border: none;
@@ -80,7 +75,6 @@ button:hover {
   box-shadow: 0 0 20px #ff00ff;
 }
 
-/* Todo item container */
 .todo-item {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid #444;
@@ -95,12 +89,12 @@ button:hover {
 
 
 
-/* Paragraphs inside todos */
+
 .todo-item p {
   margin: 0.5rem 0;
 }
 
-/* Style for completed todos */
+
 .todo-item.completed {
   background-color: rgba(0, 255, 128, 0.08);
   border: 1px solid #00ffcc;
@@ -108,4 +102,4 @@ button:hover {
   text-decoration: line-through;
   box-shadow: 0 0 12px #00ffcc, 0 0 25px #00ffaa;
   transition: all 0.3s ease;
-}
+} */
