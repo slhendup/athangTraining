@@ -1,0 +1,92 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s ease-in-out;
+}
+
+.post-card:hover {
+  background-color: #f9f9f9;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.post-body {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment {
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.comment h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.comment p {
+  margin: 0.5rem 0;
+}
+
+.email {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

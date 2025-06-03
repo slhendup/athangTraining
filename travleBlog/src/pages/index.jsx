@@ -8,6 +8,7 @@ const Home = () => {
 
       <div>
         <h2>Welcome To the Travel Blog</h2>
+        <p>hreptgi</p>
       </div>
     </div>
   );

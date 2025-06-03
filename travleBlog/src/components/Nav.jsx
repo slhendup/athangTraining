@@ -37,7 +37,7 @@ const Nav = () => {
         Home
       </Link>
       <div style={{ display: "flex", gap: "1.5rem" }}>
-        <Link to={"/contries"}>Contries</Link>
+        <Link to={"/contries"}></Link>
         <Link to={"/about"}>About</Link>
        {loggedIn && <Link to={"/profile"}>Profile</Link>}
         <button onClick={handleAuth}>{loggedIn ? "Logout" : "Login"}</button>
