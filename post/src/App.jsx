@@ -1,17 +1,36 @@
 import { Routes, Route } from "react-router-dom";
-
-import "./App.css";
 import PostsList from "./pages/PostsList";
 import Comment from "./pages/PostsDetails";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const App = () => {
+function App() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/health", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        setMessage(response.data.message);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+  }, []);
+
   return (
-    <Routes>
-      <Route path="/" element={<PostsList />} />
-      <Route path="/posts/:id" element={<Comment />} />
-    </Routes>
+    <div>
+      <div>{message}</div>
+      <Routes>
+        <Route path="/" element={<PostsList />} />
+        <Route path="/posts/:id" element={<Comment />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Routes>
+    </div>
   );
-};
+}
 export default App;
 
 // const PostsList = () => {

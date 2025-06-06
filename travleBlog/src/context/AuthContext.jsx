@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setLoggedIn(localStorage.getItem("isloggedIn") === "true");
-  }, []);
+  }, []); 
 
   const toggleAuth = () => {
     const newStatus = !loggedIn;
